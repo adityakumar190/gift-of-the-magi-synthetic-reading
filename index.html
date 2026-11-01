@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Synthetic Reading of “The Gift of the Magi”</title>
+<meta name="description" content="A reader-oriented, LLM-assisted analysis of O. Henry's short story The Gift of the Magi in seven steps: partial reading, extraction, counting, visualisation and interpretation.">
+<style>
+:root{--ink:#1f2a5c;--ink2:#2f3d82;--teal:#0e6b72;--text:#1f2330;--muted:#596075;--rule:#d3d8e8;--band:#eef1f8;--paper:#fcfcfe}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:1.5rem}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--text);font-family:Georgia,"Times New Roman",serif;font-size:1.14rem;line-height:1.75}
+a{color:var(--teal);text-underline-offset:3px}
+a:focus-visible{outline:3px solid #e0a800;outline-offset:3px;border-radius:2px}
+.hero{background:linear-gradient(135deg,#18214b 0%,var(--ink2) 100%);color:#fff;padding:0 1.25rem 3rem;border-top:10px solid var(--teal)}
+.hero .in{max-width:70rem;margin:0 auto;padding-top:2.6rem}
+.hero .kind{font-family:"Segoe UI",system-ui,-apple-system,Arial,sans-serif;font-size:1rem;color:#bfc9ee;margin:0 0 1rem;letter-spacing:.02em}
+.hero h1{font-weight:600;font-size:clamp(2rem,5vw,3.3rem);line-height:1.15;margin:0;max-width:20em;padding-top:1.1rem;border-top:4px solid #fff}
+.hero .sub{font-size:1.3rem;color:#d6ddf7;margin:.9rem 0 1.8rem;font-style:italic}
+.hero dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:1rem 2rem;margin:0 0 1.8rem;max-width:52rem;font-family:"Segoe UI",system-ui,-apple-system,Arial,sans-serif}
+.hero dt{font-size:.88rem;color:#aab6e6}
+.hero dd{margin:.1rem 0 0;font-size:1.05rem}
+.btns{display:flex;flex-wrap:wrap;gap:.8rem;font-family:"Segoe UI",system-ui,-apple-system,Arial,sans-serif}
+.btns a{color:#fff;border:1.5px solid #8f9fe0;padding:.55rem 1.1rem;border-radius:6px;text-decoration:none;font-weight:600}
+.btns a:first-child{background:#fff;color:var(--ink);border-color:#fff}
+.btns a:hover{background:#e6ebff;color:var(--ink)}
+.page{max-width:70rem;margin:0 auto;padding:2.5rem 1.25rem 3rem;display:grid;grid-template-columns:13.5rem minmax(0,1fr);gap:3.5rem}
+.toc{position:sticky;top:1.5rem;align-self:start;font-family:"Segoe UI",system-ui,-apple-system,Arial,sans-serif;font-size:.97rem}
+.toc p{margin:0 0 .6rem;font-weight:600;color:var(--ink)}
+.toc ol{list-style:none;margin:0;padding:0;border-left:2px solid var(--rule)}
+.toc span{display:block;padding:.28rem 0 .28rem .9rem;margin-left:-2px;border-left:2px solid transparent;color:var(--muted);text-decoration:none}
+article{max-width:46rem}
+section{margin-bottom:3rem}
+h2{font-size:1.7rem;font-weight:600;color:var(--ink);line-height:1.25;margin:0 0 1rem;padding-top:.8rem;border-top:3px solid var(--ink)}
+h2 span{color:var(--teal);margin-right:.5rem}
+h3{font-size:1.2rem;color:var(--ink);margin:1.8rem 0 .4rem}
+p{margin:.8rem 0;text-align:justify;hyphens:auto}
+.abs{background:var(--band);border-left:5px solid var(--teal);padding:1.2rem 1.5rem;border-radius:0 8px 8px 0}
+.abs h2{border:0;padding:0;font-size:1.3rem;margin-bottom:.3rem}
+ol.n,ul.b{padding-left:1.5rem}
+li{margin:.45rem 0}
+.tw{overflow-x:auto;margin:1.2rem 0;border:1px solid var(--rule);border-radius:8px}
+table{border-collapse:collapse;width:100%;font-family:"Segoe UI",system-ui,-apple-system,Arial,sans-serif;font-size:.98rem;line-height:1.5}
+caption{caption-side:top;text-align:left;padding:.7rem .9rem;font-style:italic;font-family:Georgia,"Times New Roman",serif;color:var(--muted);font-size:1rem}
+th,td{padding:.65rem .9rem;text-align:left;vertical-align:top;border-top:1px solid var(--rule)}
+th{background:var(--band);color:var(--ink);font-weight:600}
+.chips{list-style:none;display:flex;flex-wrap:wrap;gap:.45rem;padding:0;margin:1rem 0}
+.chips li{margin:0;padding:.18rem .75rem;border:1px solid var(--rule);background:#fff;border-radius:999px;font-family:"Segoe UI",system-ui,-apple-system,Arial,sans-serif;font-size:.95rem}
+.chips li.s{background:#dcf0f1;border-color:#9fcfd2;color:#0a4b50}
+.key{font-family:"Segoe UI",system-ui,-apple-system,Arial,sans-serif;font-size:.92rem;color:var(--muted)}
+.key i{display:inline-block;width:.9rem;height:.9rem;border-radius:50%;background:#dcf0f1;border:1px solid #9fcfd2;vertical-align:-2px;margin-right:.3rem}
+code{font-family:Consolas,"Courier New",monospace;font-size:.92em;background:var(--band);padding:.1rem .35rem;border-radius:4px}
+footer{background:var(--ink);color:#c5cdf0;text-align:center;padding:1.6rem 1.25rem;font-family:"Segoe UI",system-ui,-apple-system,Arial,sans-serif;font-size:.95rem}
+@media (max-width:62rem){.page{grid-template-columns:1fr;gap:1.5rem}.toc{position:static}.toc ol{display:flex;flex-wrap:wrap;gap:0 1.2rem;border:0}.toc span{border:0;padding:.2rem 0;margin:0}}
+@media print{.toc,.btns{display:none}.hero{background:#fff;color:#000;border-top:4px solid #000}.hero h1{border-color:#000}.hero .sub,.hero dt,.hero .kind{color:#333}.page{display:block}}
+.toc a{display:block;padding:.28rem 0 .28rem .9rem;margin-left:-2px;border-left:2px solid transparent;color:var(--muted);text-decoration:none}
+.toc a:hover{color:var(--ink);text-decoration:none}
+</style>
+</head>
+<body>
+<header class="hero"><div class="in">
+  <p class="kind">Digital Humanities Lab</p>
+  <h1>Synthetic Reading of O. Henry’s “The Gift of the Magi”</h1>
+  <p class="sub">A reader-oriented, LLM-assisted literary analysis in seven steps</p>
+  <dl>
+    <div><dt>Name</dt><dd>Aditya Kumar</dd></div>
+    <div><dt>Affiliation</dt><dd>Department of Humanities and Social Sciences <br>Indian Institute of Technology (Indian School of Mines), Dhanbad</dd></div>
+    <div><dt>Semester</dt><dd>Monsoon Semester 2026</dd></div>
+  </dl>
+  <div class="btns">
+    <a href="report.html">Full report</a>
+    <a href="visualisations.html">Interactive visualisations</a>
+    <a href="https://colab.research.google.com/github/YOUR-USERNAME/gift-of-the-magi-synthetic-reading/blob/main/synthetic_reading_gift_of_the_magi.ipynb" target="_blank" rel="noopener noreferrer">Notebook in Colab</a>
+    <a href="https://github.com/YOUR-USERNAME/gift-of-the-magi-synthetic-reading" target="_blank" rel="noopener noreferrer">Source code and data</a>
+  </div>
+</div></header>
+
+<div class="page">
+<nav class="toc" aria-label="Contents"><p>Contents</p><ol>
+ <li><a href="#abstract">Abstract</a></li>
+ <li><a href="#introduction">1. Introduction</a></li>
+ <li><a href="#objectives">2. Objectives</a></li>
+ <li><a href="#text">3. Text and research question</a></li>
+ <li><a href="#method">4. Method</a></li>
+ <li><a href="#files">5. Project files</a></li>
+ <li><a href="#dimensions">6. Dimensions and phrases</a></li>
+ <li><a href="#results">7. Results</a></li>
+ <li><a href="#findings">8. Findings</a></li>
+ <li><a href="#limitations">9. Limitations</a></li>
+ <li><a href="#conclusion">10. Conclusion</a></li>
+ <li><a href="#references">References</a></li>
+ </ol></nav>
+
+<article>
+<section id="abstract" class="abs"><h2>Abstract</h2><p>This project applies synthetic reading, a seven-step method that combines a reader’s partial reading of a text with extraction by a language model, to O. Henry’s short story “The Gift of the Magi” (1905). The research question is how the narrator’s language turns economic loss into emotional value, and what the reader learns to call “wise”. After an initial impression formed from a partial reading, four dimensions were defined: transactional shaming, corporeal commodification, objects and feeling, and paradoxical value inversion. A language model extracted phrases for twelve sub-types, each phrase was verified word for word against the text, and 193 occurrences were counted across 13 segments and four stages of the story. Shame and counting words are concentrated at the opening and fade steadily; the vocabulary of selling peaks twice, at the sale and at the confession; the language of objects and feeling is strongest in the final stage; and the vocabulary of wisdom is concentrated in the last paragraph. The original claim is therefore partly supported.</p></section>
+
+<section id="introduction"><h2><span>1</span>Introduction</h2>
+<p>Synthetic reading is a way of studying a literary text in which a human reader and a language model work together. The reader first forms an impression from a part of the text. The impression is turned into a research question and a set of categories, which are given to a language model as a prompt. The model searches the whole text for matching phrases, and the results are counted, visualised and interpreted by the reader.</p>
+<p>“The Gift of the Magi” is a short story about a young couple, Della and Jim, who each sell their most valued possession to buy a Christmas present for the other. Della sells her hair to buy a chain for Jim’s watch, and Jim sells his watch to buy combs for Della’s hair. The narrator speaks directly to the reader throughout and ends by calling the couple “the wisest” and “the magi”.</p>
+<p>The story is a useful text for this method because it is short, because its subject is the value of things, and because its narrator’s language changes visibly as the story moves from counting pennies to naming wisdom.</p></section>
+
+<section id="objectives"><h2><span>2</span>Objectives</h2>
+<ol class="n">
+<li>To carry out all seven steps of synthetic reading on one text, with the code, files and explanation for each step.</li>
+<li>To form an initial impression from a partial reading of three equal parts of the story, and to define dimensions from it.</li>
+<li>To extract and verify words and phrases for each dimension and to count them by segment and stage of the story.</li>
+<li>To present the results in four interactive figures and to interpret them in relation to the initial impression and the research question.</li>
+<li>To publish the files in a public GitHub repository and present the work on a webpage hosted through GitHub Pages.</li></ol></section>
+
+<section id="text"><h2><span>3</span>Text and research question</h2>
+<p>Table 1 describes the text that was analysed.</p>
+<div class="tw"><table><caption>Table 1. The text</caption>
+<thead><tr><th>Item</th><th>Details</th></tr></thead>
+<tbody>
+<tr><td>Title</td><td>The Gift of the Magi</td></tr>
+<tr><td>Author</td><td>O. Henry (William Sydney Porter)</td></tr>
+<tr><td>Year</td><td>1905</td></tr>
+<tr><td>Length</td><td>2,057 words in 45 paragraphs</td></tr>
+<tr><td>Divided into</td><td>13 segments (scenes) and 4 stages</td></tr></tbody></table></div>
+<h3>Research question</h3>
+<p>How does the narrator’s language turn economic loss into emotional value, and what does the reader learn to call “wise”?</p>
+<h3>Claim tested</h3>
+<p>Words of shame, counting and selling are concentrated in the first two stages of the story, while words of wisdom and the narrator’s comments are concentrated in the last stage.</p></section>
+
+<section id="method"><h2><span>4</span>Method</h2>
+<p>The work follows the seven steps of synthetic reading, in order. Table 2 summarises what was done in each step.</p>
+<div class="tw"><table><caption>Table 2. The seven steps</caption>
+<thead><tr><th>Step</th><th>Name</th><th>What was done</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>Partial reading</td><td>The story was divided into three equal parts (by sentences). From each part, 20% of the lines were read: the first block of Part 1, a random block of Part 2 (fixed seed 42) and the last block of Part 3.</td></tr>
+<tr><td>2</td><td>Initial impression</td><td>The impression, one overall concept (value inversion), the reader’s positionality, the research problem and four dimensions with twelve sub-types were written down.</td></tr>
+<tr><td>3</td><td>Text upload</td><td>The full story was loaded, lightly cleaned (spacing and stray lines only) and checked for completeness.</td></tr>
+<tr><td>4</td><td>Query generation</td><td>An extraction prompt was built from the research question and the dimensions, with rules for exact copying and one sub-type per phrase.</td></tr>
+<tr><td>5</td><td>Targeted extraction and formatting</td><td>A language model returned phrases for each sub-type. Code checked that every phrase occurs word for word in the story and under one sub-type only, and saved the verified list.</td></tr>
+<tr><td>6</td><td>Computation and visualisation</td><td>Phrases were matched by whole words, longest phrase first, without counting any stretch of text twice. Counts were converted to hits per 100 words, tested, and plotted in four figures.</td></tr>
+<tr><td>7</td><td>Interpretation of the result</td><td>The figures and tables were read dimension by dimension and related to the initial impression, the claim and the research question.</td></tr></tbody></table></div>
+<p>For Step 6 the story was divided by changes of scene into 13 segments, which were grouped into four stages (Table 3). All comparisons use hits per 100 words, so that longer segments and stages do not appear stronger only because of their length.</p>
+<div class="tw"><table><caption>Table 3. Segments and stages of the story</caption>
+<thead><tr><th>Segment</th><th>Paragraphs</th><th>Scene</th><th>Words</th><th>Stage</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>1&ndash;2</td><td>Della counts $1.87 and cries</td><td>105</td><td rowspan="3">I. Scarcity and shame (495 words)</td></tr>
+<tr><td>2</td><td>3&ndash;5</td><td>The flat and the Youngs’ income</td><td>167</td></tr>
+<tr><td>3</td><td>6&ndash;8</td><td>Della plans the present; the pier glass</td><td>223</td></tr>
+<tr><td>4</td><td>9&ndash;11</td><td>The two treasures; the hair falls; Della leaves</td><td>204</td><td rowspan="4">II. Sacrifice and exchange (584 words)</td></tr>
+<tr><td>5</td><td>12&ndash;17</td><td>Madame Sofronie buys the hair</td><td>80</td></tr>
+<tr><td>6</td><td>18&ndash;19</td><td>Shopping; the platinum chain</td><td>179</td></tr>
+<tr><td>7</td><td>20&ndash;22</td><td>Repairs at home; her reflection</td><td>121</td></tr>
+<tr><td>8</td><td>23&ndash;26</td><td>Waiting; Jim arrives</td><td>210</td><td rowspan="3">III. Confrontation (555 words)</td></tr>
+<tr><td>9</td><td>27&ndash;33</td><td>Della tells Jim she sold her hair</td><td>207</td></tr>
+<tr><td>10</td><td>34&ndash;36</td><td>The narrator’s aside; the package</td><td>138</td></tr>
+<tr><td>11</td><td>37&ndash;39</td><td>The combs are opened</td><td>150</td><td rowspan="3">IV. Revelation and revaluation (423 words)</td></tr>
+<tr><td>12</td><td>40&ndash;44</td><td>The watch; Jim’s confession</td><td>151</td></tr>
+<tr><td>13</td><td>45</td><td>The narrator’s coda: the magi</td><td>122</td></tr></tbody></table></div></section>
+
+<section id="files"><h2><span>5</span>Project files</h2>
+<p>Table 4 lists the files that make up the project, all of which are stored in a GitHub repository.</p>
+<div class="tw"><table><caption>Table 4. Files in the repository</caption>
+<thead><tr><th>File or folder</th><th>Content</th><th>Step</th></tr></thead>
+<tbody>
+<tr><td>synthetic_reading_gift_of_the_magi.ipynb</td><td>The full notebook: explanation and code for every step</td><td>1&ndash;7</td></tr>
+<tr><td>partial_reading/</td><td>The blocks read and the marked phrases</td><td>1</td></tr>
+<tr><td>initial_impression.md</td><td>Impression, positionality, research problem and dimensions</td><td>2</td></tr>
+<tr><td>corpus/</td><td>The story text (public domain)</td><td>3</td></tr>
+<tr><td>prompt/</td><td>The extraction prompt</td><td>4</td></tr>
+<tr><td>extraction/</td><td>Full prompt, model output, verified phrases, match table and counts</td><td>5&ndash;6</td></tr>
+<tr><td>docs/report.html</td><td>Full report with figures and interpretation</td><td>6&ndash;7</td></tr>
+<tr><td>docs/visualisations.html</td><td>The four interactive figures with explanations</td><td>6</td></tr>
+<tr><td>docs/interpretation.md</td><td>The interpretation as a text file</td><td>7</td></tr>
+<tr><td>docs/index.html</td><td>This project webpage</td><td>&ndash;</td></tr></tbody></table></div></section>
+
+<section id="dimensions"><h2><span>6</span>Dimensions and phrases</h2>
+<p>Four dimensions were defined from the initial impression. Each has three sub-types, and Table 5 gives the number of phrase occurrences found for each.</p>
+<div class="tw"><table><caption>Table 5. Dimensions, sub-types and number of hits</caption>
+<thead><tr><th>Dimension</th><th>Meaning</th><th>Sub-types (hits)</th><th>Total</th></tr></thead>
+<tbody>
+<tr><td>Transactional shaming</td><td>Money handled as a source of exposure and shame</td><td>Amounts of money (16); counting, saving, bargaining (11); shame and want (10)</td><td>37</td></tr>
+<tr><td>Corporeal commodification</td><td>A part of the body treated as goods that can be priced and sold</td><td>Body as sellable (17); price, sale, exchange (9); reaction to the sale (15)</td><td>41</td></tr>
+<tr><td>Objects and feeling</td><td>Gifts and possessions as carriers of feeling</td><td>Gifts and possessions (30); qualities of objects (20); feelings attached (22)</td><td>72</td></tr>
+<tr><td>Paradoxical value inversion</td><td>Loss turned into gain and foolishness into wisdom</td><td>Wisdom and foolishness (14); narrator comments (15); ironic register (14)</td><td>43</td></tr></tbody></table></div>
+<p>In total, 193 phrase occurrences were found in 2,057 words, which is 9.4 hits per 100 words. Every phrase was checked word for word against the story, and each stretch of text is counted once only. A selection of the phrases for each dimension is shown below.</p>
+<h3>Transactional shaming</h3><ul class="chips"><li>pennies</li><li>one dollar and eighty-seven cents</li><li>bulldozing</li><li>close dealing</li><li>counted</li><li>saved</li><li>cheeks burned</li><li>silent imputation of parsimony</li><li>shabby</li><li>mendicancy squad</li><li>on the sly</li><li>without gloves</li></ul>
+<h3>Corporeal commodification</h3><ul class="chips"><li>hair</li><li>brown cascade</li><li>hair goods of all kinds</li><li>i buy hair</li><li>twenty dollars</li><li>sold</li><li>cut off</li><li>panting</li><li>a tear or two</li><li>give it to me quick</li><li>truant schoolboy</li></ul>
+<h3>Objects and feeling</h3><ul class="chips"><li>watch</li><li>fob chain</li><li>combs</li><li>gifts</li><li>beautiful</li><li>quietness and value</li><li>pure tortoise shell</li><li>mighty pride</li><li>worshipped</li><li>craved</li><li>yearned</li><li>ecstatic scream of joy</li></ul>
+<h3>Paradoxical value inversion</h3><ul class="chips"><li>wise</li><li>wisest</li><li>magi</li><li>foolish children</li><li>prudence and reason</li><li>idiocy</li><li>dear friends</li><li>as you know</li><li>forget the hashed metaphor</li><li>queen of sheba</li><li>king solomon</li><li>uneventful chronicle</li></ul></section>
+
+<section id="results"><h2><span>7</span>Results</h2>
+<p>Table 6 gives the number of hits per 100 words in each stage, with the number of hits in brackets.</p>
+<div class="tw"><table><caption>Table 6. Hits per 100 words by stage (number of hits in brackets)</caption>
+<thead><tr><th>Dimension</th><th>I. Scarcity and shame</th><th>II. Sacrifice and exchange</th><th>III. Confrontation</th><th>IV. Revelation and revaluation</th></tr></thead>
+<tbody>
+<tr><td>Transactional shaming</td><td>5.86 (29)</td><td>0.86 (5)</td><td>0.54 (3)</td><td>0.00 (0)</td></tr>
+<tr><td>Corporeal commodification</td><td>0.40 (2)</td><td>3.08 (18)</td><td>2.88 (16)</td><td>1.18 (5)</td></tr>
+<tr><td>Objects and feeling</td><td>1.62 (8)</td><td>3.77 (22)</td><td>1.98 (11)</td><td>7.33 (31)</td></tr>
+<tr><td>Paradoxical value inversion</td><td>1.62 (8)</td><td>1.54 (9)</td><td>1.62 (9)</td><td>4.02 (17)</td></tr>
+<tr><td>Words in the stage</td><td>495</td><td>584</td><td>555</td><td>423</td></tr></tbody></table></div>
+<p>The four figures on the visualisations page show the same results in different ways: a heatmap of each dimension in each of the 13 segments, a comparison of the four stages, a timeline of each dimension across the story, and a ranking of the fifteen most frequent phrases.</p>
+<p>A chi-square test compared each dimension’s distribution across the stages with an even spread. All four dimensions differ clearly from an even spread: shaming and objects and feeling at p &lt; .001, corporeal commodification at p = .004 and value inversion at p = .023. A Spearman correlation between segment order and density showed a steady trend only for shaming (rho = &minus;0.81, p &lt; .001); the other three dimensions change in bursts tied to particular scenes. Because neighbouring words influence each other, the tests are a guide to which patterns are unlikely to be accidents and not formal proof.</p></section>
+
+<section id="findings"><h2><span>8</span>Findings</h2>
+<p>The figures and tables lead to the following observations.</p>
+<ul class="b">
+<li><strong>Shame and counting come first and fade:</strong> 29 of the 37 shaming hits fall in Stage I, and shaming falls from 5.86 to 0.00 hits per 100 words across the four stages. All 11 counting, saving and bargaining hits are in Stage I. Segment 1, where Della counts her money, reaches 12.4 hits per 100 words.</li>
+<li><strong>The language of selling peaks twice:</strong> the sale to Madame Sofronie (segment 5) reaches 10.0 hits per 100 words in only 80 words, and Della’s confession to Jim (segment 9) reaches 6.8. All four occurrences of “sold” are in the confession.</li>
+<li><strong>Feeling moves onto the gifts:</strong> objects and feeling reach 7.33 hits per 100 words in Stage IV, almost twice the next highest stage. The opening of the combs (segment 11) is the densest segment of this dimension at 12.0, and its words of desire (“worshipped”, “craved”, “yearned”) come at the moment the combs cannot be used.</li>
+<li><strong>Wisdom is named at the very end:</strong> 11 of the 14 wisdom and foolishness hits are in the last paragraph (segment 13, 13.1 per 100 words for the inversion dimension), and the word “wise” does not appear before it. Earlier comments about calculation, such as “A mathematician or a wit would give you the wrong answer”, prepare the reversal.</li>
+<li><strong>The narrator is present at both ends:</strong> narrator comments are highest in Stage I (6 hits) and again in the last paragraph (3 hits in 122 words), which is the highest rate of any segment.</li>
+<li><strong>The language of sacrifice is unequal:</strong> Della’s sale is covered by two high-density segments, nine words of bodily reaction in Stage II and all four occurrences of “sold”. Jim’s sale of the watch is reported in a single sentence in segment 12. This is an observation about the distribution of words, not about the story’s stated moral, which calls both gifts “the greatest treasures of their house”.</li></ul>
+<p>Table 7 compares the original claim with the results.</p>
+<div class="tw"><table><caption>Table 7. The original claim tested</caption>
+<thead><tr><th>Part of the claim</th><th>Result</th><th>Evidence</th></tr></thead>
+<tbody>
+<tr><td>Shame and counting words are early</td><td>Supported, more strongly than claimed</td><td>29 of 37 shame hits and all 11 counting hits are in Stage I alone</td></tr>
+<tr><td>Selling words are in the first two stages</td><td>Partly supported</td><td>Highest in Stages II and III (3.08 and 2.88 per 100 words); returns in the confession</td></tr>
+<tr><td>Wisdom words are in the last stage</td><td>Supported, with a qualification</td><td>11 of 14 hits are in a single paragraph</td></tr>
+<tr><td>Narrator comments are in the last stage</td><td>Not supported as stated</td><td>Highest in Stage I and again in the last paragraph</td></tr></tbody></table></div>
+<p>The results answer the research question as follows. The narrator’s language turns loss into value gradually: counting and shame come first, the numbers disappear, the hair is sold in the language of goods and then of confession, and feeling and beauty move onto the gifts when they cannot be used. Only in the last paragraph are the couple named as “the wisest” and “the magi”, so the reader is led to feel the value of the gifts before being told to call it wisdom.</p></section>
+
+<section id="limitations"><h2><span>9</span>Limitations</h2>
+<ul class="b">
+<li>The method depends on a word list. Words such as “present”, “nice” and “hair” can have several senses, and counting treats all senses alike. One false positive, “just at present”, was caught with a stoplist, but others may remain.</li>
+<li>The extraction was done by a language model from a prompt written for this study. Every phrase was verified against the text, but another model or another reader might choose different phrases.</li>
+<li>The division into 13 segments and four stages was decided by the researcher from changes of scene. A different division would change the stage figures, although the strongest patterns are also visible in the individual segments.</li>
+<li>The story is short, and a short segment, such as segment 5 with 80 words, can show a high density from a few hits.</li>
+<li>Counts show vocabulary, not tone. Irony in particular is only partly captured by phrases.</li></ul></section>
+
+<section id="conclusion"><h2><span>10</span>Conclusion</h2>
+<p>This project carried out all seven steps of synthetic reading on “The Gift of the Magi” and published the notebook, data, figures and interpretation in a GitHub repository. The results show that the story does not turn loss into value in one step. Shame fades steadily across the story, while the vocabulary of selling, of objects and of wisdom rises and falls with particular scenes: the sale, the confession, the opening of the combs and the closing paragraph. The narrator’s final claim that the couple are “the magi” is therefore the last step in a pattern that the language builds from the first paragraph. The method can be repeated on other short texts by changing the dimensions and the story file.</p></section>
+
+<section id="references"><h2>References</h2>
+<ul class="b">
+<li>Henry, O. (1905). The Gift of the Magi. Primary text analysed in this project (public domain).</li>
+<li><a href="https://docs.github.com/en/pages" target="_blank" rel="noopener noreferrer">GitHub Pages Documentation</a>: Website Publishing and Hosting</li></ul></section>
+</article></div>
+
+<footer>Monsoon Semester 2026 &middot; Department of HSS, IIT (ISM) Dhanbad</footer>
+</body>
+</html>
