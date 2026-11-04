@@ -10,6 +10,8 @@ A reader-oriented, language-model-assisted analysis of how the narrator's langua
 
 **Project webpage:** https://adityakumar190.github.io/synthetic_reading_gift_of_the_magi/
 
+**Source text:** O. Henry, "The Gift of the Magi" (1905), Project Gutenberg: https://www.gutenberg.org/cache/epub/7256/pg7256-images.html
+
 ## Research question
 
 How does the narrator's language turn economic loss into emotional value, and what does the reader learn to call "wise"?
