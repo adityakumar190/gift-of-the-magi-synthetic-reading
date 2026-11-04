@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Synthetic Reading of “The Gift of the Magi”: How Language Turns Loss into Value</title>
+<meta name="description" content="A reader-oriented, LLM-assisted analysis of how the narrator’s language turns economic loss into emotional value in O. Henry’s “The Gift of the Magi”.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap">
+<style>
+:root{--ink:#1a2250;--hi:#34439a;--bh:#0b6b6f;--gold:#d99a00;--text:#1e2230;--muted:#5a6177;--rule:#d5d9e6;--band:#eef0f7;--paper:#fafbfd;--serif:Newsreader,Georgia,serif;--sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;--dev:"Noto Serif Devanagari","Nirmala UI",serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:1.5rem}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--text);font:1.14rem/1.75 var(--serif)}
+a{color:var(--bh);text-underline-offset:3px}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:3px}
+.sans{font-family:var(--sans)}
+/* hero */
+.hero{background:var(--ink);color:#fff;padding:3rem 1.25rem 3.2rem;border-bottom:6px solid var(--gold)}
+.hero .in{max-width:72rem;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:3rem;align-items:center}
+.kind{font:500 1rem var(--sans);color:#b9c3ee;margin:0 0 1rem}
+h1{font-weight:600;font-size:clamp(2rem,4.6vw,3.2rem);line-height:1.12;margin:0}
+.sub{font-size:1.3rem;color:#d3daf7;font-style:italic;margin:.8rem 0 1.6rem}
+.hero dl{display:grid;gap:.7rem;margin:0 0 1.8rem;font-family:var(--sans)}
+.hero dt{font-size:.85rem;color:#a9b5e6}.hero dd{margin:0;font-size:1rem}
+.btns{display:flex;flex-wrap:wrap;gap:.8rem;font-family:var(--sans)}
+.btn{display:inline-flex;align-items:center;gap:.55rem;padding:.6rem 1.1rem;border-radius:6px;font-weight:600;text-decoration:none;border:1.5px solid #8f9fe0;color:#fff}
+.btn svg{width:1.2rem;height:1.2rem;fill:currentColor}
+.btn.main{background:#fff;color:var(--ink);border-color:#fff}
+.btn:hover{background:var(--gold);border-color:var(--gold);color:#1a1400}
+.spec{background:var(--paper);color:var(--text);border-radius:10px;padding:1.4rem 1.6rem;box-shadow:0 0 0 1px #fff3,8px 8px 0 var(--gold)}
+.spec h2{all:unset;display:block;font:500 .95rem var(--sans);color:var(--muted);margin-bottom:.9rem}
+.spec .row{padding:.8rem 0;border-top:1px solid var(--rule)}
+.spec .row:first-of-type{border-top:0}
+.spec .lang{font:500 .9rem var(--sans);color:var(--muted)}.spec .lang b{font:500 1.1rem var(--dev);color:var(--ink);margin-right:.4rem}
+.spec .s{font-size:1.5rem;line-height:1.5}
+.spec .s span{margin-right:.35rem}
+.sw{color:#8a90a6;text-decoration:line-through}.ct{font-weight:600;color:var(--ink)}
+.spec p{font:.88rem/1.5 var(--sans);color:var(--muted);margin:.9rem 0 0;text-align:left}
+/* layout */
+.page{max-width:72rem;margin:0 auto;padding:2.5rem 1.25rem 3rem;display:grid;grid-template-columns:13rem minmax(0,1fr);gap:3rem}
+.toc{position:sticky;top:1.5rem;align-self:start;font:.95rem var(--sans)}
+.toc p{margin:0 0 .6rem;font-weight:600;color:var(--ink)}
+.toc ol{list-style:none;margin:0;padding:0;border-left:2px solid var(--rule)}
+.toc a{display:block;padding:.26rem 0 .26rem .9rem;margin-left:-2px;border-left:3px solid transparent;color:var(--muted);text-decoration:none}
+.toc a:hover{color:var(--ink)}
+.toc a[aria-current]{color:var(--ink);font-weight:600;border-left-color:var(--gold)}
+article{max-width:50rem;min-width:0}
+section{margin-bottom:3rem}
+h2{font-size:1.7rem;font-weight:600;color:var(--ink);line-height:1.25;margin:0 0 1rem;padding-top:.8rem;border-top:3px solid var(--ink)}
+h2 span{color:var(--bh);margin-right:.55rem}
+h3{font-size:1.2rem;color:var(--ink);margin:1.6rem 0 .4rem}
+p{margin:.8rem 0;text-align:justify;hyphens:auto}
+.abs{background:var(--band);border-left:5px solid var(--gold);padding:1.2rem 1.5rem;border-radius:0 8px 8px 0}
+.abs h2{border:0;padding:0;font-size:1.3rem;margin-bottom:.3rem}
+ol.n,ul.b{padding-left:1.5rem}li{margin:.45rem 0}
+.tw{overflow-x:auto;margin:1.2rem 0;border:1px solid var(--rule);border-radius:8px;background:#fff}
+table{border-collapse:collapse;width:100%;font:.97rem/1.5 var(--sans)}
+caption{caption-side:top;text-align:left;padding:.7rem .9rem;font:italic 1rem var(--serif);color:var(--muted)}
+th,td{padding:.6rem .9rem;text-align:left;vertical-align:top;border-top:1px solid var(--rule)}
+th{background:var(--band);color:var(--ink);font-weight:600}
+td.h{color:var(--hi)}td.b{color:var(--bh)}
+code{font:.9em Consolas,"Courier New",monospace;background:var(--band);padding:.1rem .35rem;border-radius:4px}
+pre{background:#161b3d;color:#e4e8ff;padding:1rem 1.2rem;border-radius:8px;overflow-x:auto;font:.9rem/1.6 Consolas,"Courier New",monospace}
+pre code{background:none;padding:0}
+/* explorer */
+.ui{font-family:var(--sans);font-size:.95rem}
+.ctl{display:flex;flex-wrap:wrap;gap:.45rem;margin:1rem 0}
+.ctl button,.ctl label.pill{font:inherit;padding:.3rem .8rem;border:1px solid var(--rule);background:#fff;color:var(--text);border-radius:999px;cursor:pointer}
+.ctl button[aria-pressed=true],.ctl input:checked+span{background:var(--ink);color:#fff;border-color:var(--ink)}
+.vh{position:absolute;opacity:0;width:1px;height:1px}
+.ctl label.pill{position:relative}.ctl input:focus-visible+span{outline:3px solid var(--gold);outline-offset:3px;border-radius:999px}
+.q{font:inherit;padding:.5rem .8rem;border:1px solid var(--rule);border-radius:6px;width:100%;max-width:20rem;margin-bottom:.4rem}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+.col{border-top:4px solid;padding-top:.5rem}.col.h{border-color:var(--hi)}.col.b{border-color:var(--bh)}
+.col h3{margin:.2rem 0 .6rem;font-family:var(--sans);font-size:1rem;display:flex;justify-content:space-between}
+.col h3 em{font-style:normal;color:var(--muted);font-weight:400}
+.chips{list-style:none;display:flex;flex-wrap:wrap;gap:.4rem;padding:0;margin:0;min-height:3rem;align-content:flex-start}
+.chips li{margin:0;padding:.1rem .65rem;border-radius:999px;background:#fff;border:1px solid}
+.col.h .chips li{border-color:#aab3e3;color:var(--hi)}.col.b .chips li{border-color:#8fcacd;color:var(--bh);border-style:dashed}
+.fig .bar{display:grid;grid-template-columns:9.5rem 1fr 1fr;gap:.5rem 1rem;align-items:center;font:.9rem var(--sans);margin:.3rem 0}
+.fig .t{display:flex;align-items:center;gap:.5rem}.fig .t i{height:.8rem;display:block;border-radius:2px;min-width:2px}
+.fig .t span{color:var(--muted)}
+.leg{font:.9rem var(--sans);color:var(--muted)}
+.leg b{display:inline-block;width:.9rem;height:.9rem;border-radius:3px;vertical-align:-2px;margin:0 .3rem 0 .8rem}
+/* demo */
+textarea{width:100%;font:1.1rem/1.5 var(--serif);padding:.7rem .9rem;border:1px solid var(--rule);border-radius:8px;resize:vertical}
+.out{background:#fff;border:1px solid var(--rule);border-radius:8px;padding:1rem 1.2rem;font-size:1.25rem;line-height:2;min-height:4rem}
+.out .th{color:var(--hi);text-decoration:line-through;background:#e8ebfa;border-radius:4px;padding:0 .25rem}
+.out .tb{color:var(--bh);text-decoration:line-through;background:#dff1f1;border-radius:4px;padding:0 .25rem;border-bottom:2px dashed var(--bh)}
+.rq{background:var(--band);border-left:5px solid var(--bh);padding:.9rem 1.2rem;border-radius:0 8px 8px 0;text-align:left}
+.stat{font:.95rem var(--sans);color:var(--muted)}
+footer{background:var(--ink);color:#c5cdf0;text-align:center;padding:1.6rem 1.25rem;font:.95rem var(--sans)}
+footer a{color:#fff}
+@media (max-width:62rem){.hero .in,.page{grid-template-columns:1fr;gap:1.8rem}.toc{position:static}.toc ol{display:flex;flex-wrap:wrap;gap:0 1.2rem;border:0}.toc a{border:0;padding:.2rem 0;margin:0}}
+@media (max-width:40rem){.cols{grid-template-columns:1fr}.fig .bar{grid-template-columns:1fr}p{text-align:left}}
+@media print{.toc,.btns,.ctl,.q,textarea{display:none}.hero{background:#fff;color:#000}.hero .kind,.hero dt,.sub{color:#333}.page{display:block}}
+
+:root{--d0:#34439a;--d1:#0b6b6f;--d2:#9a5b00;--d3:#8a3470}
+.mk{padding:0 .3rem;border-radius:4px;border-bottom:3px solid;font-weight:600}
+.m0{background:#e8ebfa;color:var(--d0);border-color:var(--d0)}.m1{background:#dff1f1;color:var(--d1);border-color:var(--d1);border-bottom-style:dashed}
+.m2{background:#fbefd9;color:var(--d2);border-color:var(--d2);border-bottom-style:dotted}.m3{background:#f6e4ef;color:var(--d3);border-color:var(--d3);border-bottom-style:double;border-bottom-width:4px}
+.spec .s{font-size:1.3rem}
+.lg{display:flex;flex-wrap:wrap;gap:.3rem .9rem;font:.85rem var(--sans);color:var(--muted);margin-top:.9rem}
+.lg i{display:inline-block;width:.85rem;height:.85rem;border-radius:3px;margin-right:.35rem;vertical-align:-2px}
+.cols4{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.cols4 .col{border-top-color:var(--c)}.cols4 .col h3{display:block}.cols4 .col h3 span{display:block}
+.cols4 .chips li{border-color:var(--c);color:var(--c);font-size:.88rem;padding:.05rem .55rem}
+.cols4 .col:nth-child(2) .chips li{border-style:dashed}.cols4 .col:nth-child(3) .chips li{border-style:dotted;border-width:2px}.cols4 .col:nth-child(4) .chips li{border-left-width:5px}
+.chips li b{font-weight:500;color:var(--muted);margin-left:.25rem}
+.hm{display:grid;grid-template-columns:9rem repeat(13,minmax(1.7rem,1fr));gap:2px;font:.85rem var(--sans);min-width:38rem}
+.hm div{padding:.45rem 0;text-align:center;border-radius:3px}.hm .r{text-align:left;padding-left:.2rem;background:none!important;color:var(--text)!important}
+.hm .h{color:var(--muted);padding:.2rem 0}
+.sb{display:grid;grid-template-columns:11rem repeat(4,1fr);gap:.5rem 1rem;align-items:center;font:.88rem var(--sans);min-width:38rem}
+.sb .t{display:flex;align-items:center;gap:.4rem}.sb .t i{display:block;height:.9rem;border-radius:2px;min-width:2px}.sb .t span{color:var(--muted)}
+.sb .h{color:var(--muted);font-size:.8rem}
+.tl{width:100%;height:auto;display:block;font:11px var(--sans)}
+.pb{display:grid;grid-template-columns:7rem 1fr;gap:.35rem .8rem;align-items:center;font:.9rem var(--sans)}
+.pb .t{display:flex;align-items:center;gap:.5rem}.pb .t i{display:block;height:.9rem;border-radius:2px}.pb .t span{color:var(--muted)}
+.rd{background:#fff;border:1px solid var(--rule);border-radius:8px;padding:1rem 1.2rem;font-family:var(--sans)}
+.rd h3{margin:0 0 .2rem;font-family:var(--serif)}.rd .meta{color:var(--muted);font-size:.9rem;margin-bottom:.8rem}
+.rd .row{display:grid;grid-template-columns:11rem 1fr;gap:.2rem .8rem;align-items:center;margin:.25rem 0;font-size:.9rem}
+.rd .row .t{display:flex;align-items:center;gap:.5rem}.rd .row i{display:block;height:.9rem;border-radius:2px;min-width:2px}
+.rd .chips{margin-top:.8rem}.rd .chips li{font-size:.9rem}
+.stg{font-weight:600;color:var(--ink)}
+@media (max-width:62rem){.cols4{grid-template-columns:1fr 1fr}}
+@media (max-width:40rem){.cols4{grid-template-columns:1fr}.rd .row,.pb{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="in">
+ <div>
+  <p class="kind">Digital Humanities Lab</p>
+  <h1>Synthetic Reading of O. Henry’s “The Gift of the Magi”</h1>
+  <p class="sub">How the narrator’s language turns economic loss into emotional value</p>
+  <dl>
+   <div><dt>Name</dt><dd>Aditya Kumar</dd></div>
+   <div><dt>Affiliation</dt><dd>Department of Humanities and Social Sciences <br>Indian Institute of Technology (Indian School of Mines), Dhanbad</dd></div>
+   <div><dt>Semester</dt><dd>Monsoon Semester 2026</dd></div>
+  </dl>
+  <div class="btns">
+   <a class="btn main" href="https://github.com/adityakumar190/synthetic_reading_gift_of_the_magi" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>View on GitHub</a>
+   <a class="btn" href="docs/visualisations.html">Interactive figures</a>
+   <a class="btn" href="docs/report.html">Full report</a>
+  </div>
+ </div>
+ <aside class="spec" aria-label="Example of phrases marked in the story">
+  <h2>What a synthetic reading marks</h2>
+  <div class="row"><div class="lang">Stage I · Scarcity and shame</div><div class="s">And <span class="mk m0">sixty cents</span> of it was in <span class="mk m0">pennies</span>.</div></div>
+  <div class="row"><div class="lang">Stage II · Sacrifice and exchange</div><div class="s">“<span class="mk m1">Will you buy my hair</span>?” asked Della.</div></div>
+  <div class="row"><div class="lang">Stage IV · Revelation and revaluation</div><div class="s">Of all who give and receive <span class="mk m2">gifts</span>, such as they are <span class="mk m3">wisest</span>.</div></div>
+  <div class="lg"><span><i style="background:var(--d0)"></i>Transactional shaming</span><span><i style="background:var(--d1)"></i>Corporeal commodification</span><span><i style="background:var(--d2)"></i>Objects and feeling</span><span><i style="background:var(--d3)"></i>Value inversion</span></div>
+  <p>Each marked phrase is counted once, under one dimension. The counts are then compared across the story.</p>
+ </aside>
+</div></header>
+
+<div class="page">
+<nav class="toc" aria-label="Contents"><p>Contents</p><ol>
+ <li><a href="#abstract">Abstract</a></li>
+ <li><a href="#introduction">1. Introduction</a></li>
+ <li><a href="#objectives">2. Objectives</a></li>
+ <li><a href="#corpus">3. Corpus</a></li>
+ <li><a href="#method">4. Method</a></li>
+ <li><a href="#files">5. Project files</a></li>
+ <li><a href="#lexicon">6. Extracted phrases</a></li>
+ <li><a href="#results">7. Results</a></li>
+ <li><a href="#interpretation">8. Interpretation</a></li>
+ <li><a href="#demo">9. Demonstration</a></li>
+ <li><a href="#limitations">10. Limitations</a></li>
+ <li><a href="#conclusion">11. Conclusion</a></li>
+ <li><a href="#references">References</a></li>
+</ol></nav>
+
+<article>
+<section id="abstract" class="abs"><h2>Abstract</h2><p>This project reads O. Henry’s short story “The Gift of the Magi” (1905) by combining a human reading with extraction by a language model. A partial reading of three sampled blocks gave an initial impression, a research problem and four dimensions of analysis: transactional shaming, corporeal commodification, objects and feeling, and paradoxical value inversion. A language model then extracted 152 distinct words and phrases, for twelve sub-types, from the full text. Each phrase was verified word for word against the story and matched in the text, giving 193 occurrences in 2,057 words (9.4 per 100 words). The occurrences were compared across 13 segments and four stages with a heatmap, grouped bars, a timeline and a phrase ranking, and checked with chi-square and Spearman tests. Shame and counting vocabulary is concentrated in the opening and then disappears. The language of selling the hair peaks at the sale and at Della’s confession. Feeling moves onto the gifts, and the vocabulary of wisdom appears almost only in the final paragraph, where the couple are called “the wisest”.</p></section>
+
+<section id="introduction"><h2><span>1</span>Introduction</h2>
+<p>“The Gift of the Magi” tells of a young couple, Della and Jim, who each sell their most valued possession, her hair and his watch, to buy a Christmas present for the other. The gifts, a set of combs and a watch chain, can no longer be used. The narrator addresses the reader throughout and in the last paragraph calls the two “the wisest”.</p>
+<p>The story is short and well known, so its plot is not the question here. The question is how the narrator’s language makes a loss of money and of property read as a gain in feeling. In this project, a synthetic reading combines the researcher’s close reading of selected passages with a language model’s extraction of vocabulary from the whole story, followed by counting and comparison.</p>
+<p>The analysis is reader-oriented. The four dimensions did not come from a ready-made scheme. They came from the researcher’s first reading, and the counts were then used to check, refine and sometimes correct that first impression.</p>
+<p class="rq"><strong>Research question:</strong> How does the narrator’s language turn economic loss into emotional value, and what does the reader learn to call “wise”?</p>
+<p class="rq"><strong>Claim tested:</strong> Words of shame, counting and selling are concentrated in the first two stages of the story, while words of wisdom and the narrator’s comments are concentrated in the last stage.</p></section>
+
+<section id="objectives"><h2><span>2</span>Objectives</h2>
+<ol class="n">
+<li>To read three sampled blocks of the story (the opening, the moment Jim sees Della, and the ending) and form an initial impression, a concept, a position and a research problem.</li>
+<li>To define four dimensions, each with three sub-types, from that first reading.</li>
+<li>To have a language model extract words and phrases for each sub-type from the full text with a fixed prompt, and to verify every phrase against the story.</li>
+<li>To match and count the phrases across 13 segments and four stages in hits per 100 words, and to test the patterns with chi-square and Spearman tests.</li>
+<li>To test the claim, answer the research question and compare the result with the initial impression.</li>
+<li>To publish all materials in a public GitHub repository and present the work on a webpage hosted through GitHub Pages.</li></ol></section>
+
+<section id="corpus"><h2><span>3</span>Corpus</h2>
+<p>The corpus is the full text of the story: 45 paragraphs and 2,057 words. Segments and stages were decided by the researcher from shifts of scene, not by equal length. The 13 segments range from 80 to 223 words and form four stages of 495, 584, 555 and 423 words. Table 1 shows the division.</p>
+<div class="tw"><table><caption>Table 1. Segments and stages of the story</caption>
+<thead><tr><th>Segment</th><th>Paragraphs</th><th>Scene</th><th>Stage</th><th>Words</th></tr></thead>
+<tbody><tr><td>1</td><td>1-2</td><td>Della counts $1.87 and cries</td><td>I. Scarcity and shame</td><td>105</td></tr><tr><td>2</td><td>3-5</td><td>The flat and the Youngs’ income</td><td>I. Scarcity and shame</td><td>167</td></tr><tr><td>3</td><td>6-8</td><td>Della plans the present; the pier glass</td><td>I. Scarcity and shame</td><td>223</td></tr><tr><td>4</td><td>9-11</td><td>The two treasures; the hair falls; Della leaves</td><td>II. Sacrifice and exchange</td><td>204</td></tr><tr><td>5</td><td>12-17</td><td>Madame Sofronie buys the hair</td><td>II. Sacrifice and exchange</td><td>80</td></tr><tr><td>6</td><td>18-19</td><td>Shopping; the platinum chain</td><td>II. Sacrifice and exchange</td><td>179</td></tr><tr><td>7</td><td>20-22</td><td>Repairs at home; her reflection</td><td>II. Sacrifice and exchange</td><td>121</td></tr><tr><td>8</td><td>23-26</td><td>Waiting; Jim arrives</td><td>III. Confrontation</td><td>210</td></tr><tr><td>9</td><td>27-33</td><td>Della tells Jim she sold her hair</td><td>III. Confrontation</td><td>207</td></tr><tr><td>10</td><td>34-36</td><td>The narrator’s aside; the package</td><td>III. Confrontation</td><td>138</td></tr><tr><td>11</td><td>37-39</td><td>The combs are opened</td><td>IV. Revelation and revaluation</td><td>150</td></tr><tr><td>12</td><td>40-44</td><td>The watch; Jim’s confession</td><td>IV. Revelation and revaluation</td><td>151</td></tr><tr><td>13</td><td>45-45</td><td>The narrator’s coda: the magi</td><td>IV. Revelation and revaluation</td><td>122</td></tr></tbody></table></div></section>
+
+<section id="method"><h2><span>4</span>Method</h2>
+<p>The work follows the seven steps of the Google Colab notebook that accompanies the project.</p>
+<ol class="n">
+<li><strong>Partial reading:</strong> The story was split into three equal parts by sentence count. One block of about one-fifth of each part was read: the first block of Part 1, a randomly placed block of Part 2 (seed 42) and the last block of Part 3. Phrases were marked while reading.</li>
+<li><strong>Initial impression:</strong> From the marked phrases the researcher wrote an impression, one overall concept (value inversion), a statement of position, a research problem and four dimensions. The position is that of a college student from a busy, multilingual Indian city, for whom English is an academic register.</li>
+<li><strong>Text upload:</strong> The full text of the story was loaded, cleaned of stray page numbers and headers, and split into paragraphs (45 paragraphs, 2,057 words).</li>
+<li><strong>Query generation:</strong> The dimensions were turned into a prompt that gives the research question, defines the twelve sub-types, sets seven rules (exact copying, shortest phrase, one sub-type per phrase, no repeats, no function words) and fixes a JSON structure.</li>
+<li><strong>Targeted extraction and formatting:</strong> Claude (Anthropic), in a claude.ai chat on 31 October 2026, extracted the phrases from the full text, and the reply was stored as received. Every phrase had to occur word for word in the story and under one sub-type only. The researcher rejected none, which left 152 verified phrases.</li>
+<li><strong>Computation and visualisation:</strong> Phrases were matched by whole words, ignoring case, longest phrase first, without counting any stretch of text twice. One false match, “at present” (meaning “now”), was removed with a stoplist. Hits were counted per segment and stage and divided by length to give hits per 100 words, then tested and drawn as four figures.</li>
+<li><strong>Interpretation:</strong> The counts, tests and figures were read together with the passages in which the phrases occur.</li></ol></section>
+
+<section id="files"><h2><span>5</span>Project files</h2>
+<p>Table 2 lists the files that make up the project, with the step of the method (Section 4) to which each belongs. All of them are stored in a GitHub repository.</p>
+<div class="tw"><table><caption>Table 2. Files in the repository</caption>
+<thead><tr><th>File</th><th>Content</th><th>Step</th></tr></thead>
+<tbody><tr><td><code>synthetic_reading_gift_of_the_magi.ipynb</code></td><td>Google Colab notebook with the seven steps: it builds the folders and files below from the story and the model’s reply</td><td>1–7</td></tr><tr><td><code>partial_reading/partial_reading.txt</code></td><td>Sampling method and the phrases marked in the three blocks read</td><td>1</td></tr><tr><td><code>initial_impression.md</code></td><td>Initial impression, concept, position, research problem and the four dimensions</td><td>2</td></tr><tr><td><code>corpus/gift_of_the_magi.txt</code></td><td>Full text of the story (2,057 words, 45 paragraphs)</td><td>3</td></tr><tr><td><code>prompt/prompt.txt</code></td><td>Prompt template with a {{PASSAGE}} placeholder</td><td>4</td></tr><tr><td><code>extraction/full_prompt.txt</code></td><td>The complete prompt as sent to the model</td><td>4</td></tr><tr><td><code>extraction/raw_llm_output.json</code></td><td>Record of the model, date, prompt file and merged output</td><td>5</td></tr><tr><td><code>extraction/llm_output.json</code></td><td>The extracted phrases as received from the model</td><td>5</td></tr><tr><td><code>extraction/verified_items.json</code></td><td>The 152 verified phrases by dimension and sub-type</td><td>5</td></tr><tr><td><code>extraction/Theme_JSON.py</code></td><td>The verified phrases as a Python dictionary (<code>themes</code>)</td><td>5</td></tr><tr><td><code>extraction/README.md</code></td><td>Extraction record: model, date, rules and matching settings</td><td>5–6</td></tr><tr><td><code>extraction/matches.csv</code></td><td>The 193 matched occurrences: segment, stage, dimension, sub-type, phrase, position</td><td>6</td></tr><tr><td><code>extraction/segment_counts.json</code></td><td>The same 193 occurrences in JSON form</td><td>6</td></tr><tr><td><code>docs/visualisations.html</code></td><td>The four interactive figures</td><td>6</td></tr><tr><td><code>docs/interpretation.md</code></td><td>Written interpretation (sections 7.1 to 7.12)</td><td>7</td></tr><tr><td><code>docs/report.html</code></td><td>Full report: figures and interpretation</td><td>7</td></tr><tr><td><code>index.html, README.md</code></td><td>This webpage and the project description</td><td>–</td></tr></tbody></table></div></section>
+
+<section id="lexicon"><h2><span>6</span>Extracted phrases</h2>
+<p>The 152 verified phrases are shown by dimension, with the number of times each occurs in the story. Choose a stage to see which phrases occur in it, or search for a phrase. Hover over a phrase to see its sub-type and segments.</p>
+<div class="ui">
+<div class="ctl" id="cats" role="group" aria-label="Filter by stage"></div>
+<input class="q" id="q" type="search" placeholder="Search a phrase, e.g. hair" aria-label="Search phrases">
+<div class="cols4" id="cols"></div></div>
+<p class="leg">Outline style marks the dimension: solid, dashed, dotted and thick-edged, in the order shown. The number after a phrase is its hits in the chosen part of the story.</p></section>
+
+<section id="results"><h2><span>7</span>Results</h2>
+<p>The extraction found 193 occurrences in 2,057 words. By dimension, objects and feeling has 72 hits (37%), value inversion 43, corporeal commodification 41 and transactional shaming 37. The figures below use hits per 100 words, so that segments and stages of different lengths can be compared. Figure 1 shows each dimension in each segment, and the number in each square is the count of hits.</p>
+<div class="tw" style="padding:.8rem"><div class="hm" id="hm" role="img" aria-label="Heatmap of hits per dimension in each of the 13 segments"></div></div>
+<p class="leg">Figure 1. Hits per dimension and segment; the shade shows hits per 100 words, and dotted red lines mark the start of a new stage.</p>
+<p>Figure 2 groups the segments into the four stages, and Table 3 gives the same values.</p>
+<div class="tw" style="padding:.8rem"><div class="sb" id="sb" role="img" aria-label="Grouped bars of hits per 100 words by dimension and stage"></div></div>
+<p class="leg">Figure 2. Hits per 100 words by stage (I to IV, from left to right in each row).</p>
+<div class="tw"><table><caption>Table 3. Hits per 100 words by dimension and stage</caption>
+<thead><tr><th>Dimension</th><th>I. Scarcity and shame<br><small>495 words</small></th><th>II. Sacrifice and exchange<br><small>584 words</small></th><th>III. Confrontation<br><small>555 words</small></th><th>IV. Revelation and revaluation<br><small>423 words</small></th></tr></thead><tbody><tr><td>Transactional shaming</td><td>5.86</td><td>0.86</td><td>0.54</td><td>0.00</td></tr><tr><td>Corporeal commodification</td><td>0.40</td><td>3.08</td><td>2.88</td><td>1.18</td></tr><tr><td>Objects and feeling</td><td>1.62</td><td>3.77</td><td>1.98</td><td>7.33</td></tr><tr><td>Paradoxical value inversion</td><td>1.62</td><td>1.54</td><td>1.62</td><td>4.02</td></tr><tr><th>All dimensions</th><th>9.49</th><th>9.25</th><th>7.03</th><th>12.53</th></tr></tbody></table></div>
+<p>Figure 3 follows each dimension through the 13 segments in story order.</p>
+<div class="tw" style="padding:.6rem"><svg class="tl" id="tl" viewBox="0 0 640 250" role="img" aria-label="Line chart of hits per 100 words by segment for the four dimensions"></svg></div>
+<div class="lg" id="tlg"></div>
+<p class="leg">Figure 3. Change across the story, in hits per 100 words; dotted lines mark the start of a new stage.</p>
+<p>Figure 4 shows the phrases with at least three hits. The full ranking is in the interactive figures.</p>
+<div class="tw" style="padding:.8rem"><div class="pb" id="pb"></div></div>
+<p class="leg">Figure 4. The most frequent phrases, coloured by dimension.</p>
+<div class="tw"><table><caption>Table 4. Statistical checks (chi-square against an even spread across stages, 3 degrees of freedom; Spearman correlation of density with segment order)</caption>
+<thead><tr><th>Dimension</th><th>Chi-square</th><th>p</th><th>Spearman rho</th><th>p</th></tr></thead><tbody><tr><td>Transactional shaming</td><td>60.7</td><td>&lt; .001</td><td>-0.81</td><td>&lt; .001</td></tr><tr><td>Corporeal commodification</td><td>13.3</td><td>.004</td><td>0.13</td><td>.683</td></tr><tr><td>Objects and feeling</td><td>26.5</td><td>&lt; .001</td><td>0.46</td><td>.114</td></tr><tr><td>Paradoxical value inversion</td><td>9.5</td><td>.023</td><td>0.04</td><td>.894</td></tr></tbody></table></div>
+<ul class="b">
+<li><strong>Shame and counting belong to the opening:</strong> 29 of the 37 shame hits and all 11 counting hits are in Stage I. Density falls in every stage (5.86, 0.86, 0.54, 0.00) and no segment from 9 onwards has any hit. It is the only dimension with a steady trend (rho = −0.81).</li>
+<li><strong>Selling has two peaks:</strong> the sale to Madame Sofronie (segment 5, 8 hits in 80 words) and Della’s confession (segment 9, 14 hits). All four hits of “sold” are in segment 9. Jim’s sale of the watch is stated once, in segment 12.</li>
+<li><strong>Value attaches to the gifts:</strong> Objects and feeling peaks at the chain (segment 6, 14 hits) and at the combs (segment 11, 18 hits in 150 words, 12.0 per 100 words). Feeling words rise in every stage (0.61, 0.68, 0.90, 2.36 per 100 words), and so do wisdom words (0.00, 0.17, 0.36, 2.60).</li>
+<li><strong>Wisdom arrives at the end:</strong> Value inversion is flat in Stages I to III (1.62, 1.54, 1.62) and rises to 4.02 in Stage IV, where 16 of its 17 hits are in the final paragraph. Words such as “wise”, “wisest” and “magi” occur only there.</li>
+<li><strong>The narrator is present at both ends:</strong> Narrator comments have 6 hits in Stage I and 3 in each later stage, with 3 in the 122 words of the final paragraph, the highest density of any segment.</li>
+<li><strong>“hair” is the most frequent item (9 hits):</strong> once in segment 3, three times in segment 4, four times in segment 9 and once in segment 11, so it is named before, during and after the sale.</li></ul>
+<div class="tw"><table><caption>Table 5. The original claim tested against the counts</caption>
+<thead><tr><th>Part of the claim</th><th>Result</th><th>Evidence</th></tr></thead><tbody>
+<tr><td>Shame and counting words are early</td><td><strong>Supported, more strongly than claimed</strong></td><td>29 of 37 shame hits and all 11 counting hits are in Stage I; shame falls steadily (rho = −0.81)</td></tr>
+<tr><td>Selling words are in the first two stages</td><td><strong>Partly supported</strong></td><td>Highest in Stages II and III (3.08 and 2.88 per 100 words) and returns in Della’s confession (segment 9)</td></tr>
+<tr><td>Wisdom words are in the last stage</td><td><strong>Supported, with a qualification</strong></td><td>11 of 14 hits are in a single paragraph (segment 13)</td></tr>
+<tr><td>Narrator comments are in the last stage</td><td><strong>Not supported as stated</strong></td><td>Highest in Stage I (6 hits) and again in the final paragraph (3 hits)</td></tr></tbody></table></div></section>
+
+<section id="interpretation"><h2><span>8</span>Interpretation</h2>
+<p>The research question asked how the narrator’s language turns economic loss into emotional value. The counts show that this happens in four overlapping moves, not in one smooth process.</p>
+<ol class="n">
+<li><strong>Counting and shame come first.</strong> The story opens in money, and the narrator shows that the shame comes from being watched while bargaining (“bulldozing the grocer and the vegetable man and the butcher”), not from poverty alone.</li>
+<li><strong>The numbers disappear.</strong> Counting words are absent after Stage I, and amounts of money are absent after Stage II. The only later mention of counting is a negation, “nobody could ever count my love for you”.</li>
+<li><strong>The hair is sold in the language of goods, then of confession.</strong> The sale scene packs a sign, a question, a price and a reaction into 80 words. Della then repeats the words of sale to Jim as an appeal.</li>
+<li><strong>Feeling and value move onto the gifts.</strong> Words of beauty, desire and joy are strongest around the combs, which are described as expensive and coveted at the moment they cannot be used. Loss does not lower the value of the gift in the language of the story; it raises it.</li></ol>
+<p><strong>What the reader learns to call “wise”.</strong> The narrator names the result only in the last paragraph, where 11 of the 14 wisdom words appear. Before that, the vocabulary of reason marks calculation and blankness: “prudence and reason”, “an air almost of idiocy” and “A mathematician or a wit would give you the wrong answer”. The reader is led to feel the value of the gifts before being told to call it wisdom, and the two who gave up their most valuable possessions are named “the wisest” and “the magi”.</p>
+<p>Two findings go beyond the first impression. The conversion runs at different speeds in different dimensions, and the sacrifice is told unequally. Della’s sale fills two dense segments, nine reaction words and every “sold”, while Jim’s sale is reported in one sentence with no words of bodily reaction. This is an observation about the distribution of words, not about the story’s intention, since the last paragraph calls both gifts “the greatest treasures of their house”.</p>
+<p>The reader’s position shaped what was noticed first: money, family obligation and feeling. Formal words such as “parsimony”, “mendicancy” and “meretricious” are easy to pass over when reading for plot, and the extraction step made them visible. The model therefore complemented the reading and did not replace it, while the choice of the four dimensions came from the reading. The full discussion is in <a href="docs/interpretation.md">docs/interpretation.md</a> and <a href="docs/report.html">docs/report.html</a>.</p></section>
+
+<section id="demo"><h2><span>9</span>Demonstration</h2>
+<p>Choose a segment to see its scene, its length and the phrases found in it, with the hits per 100 words in each dimension.</p>
+<div class="ui">
+<div class="ctl" id="segs" role="group" aria-label="Choose a segment"></div>
+<div class="rd" id="rd" aria-live="polite"></div></div>
+<p>The same counts can be reproduced from <code>extraction/matches.csv</code> with a few lines of Python:</p>
+<pre><code>import pandas as pd
+
+m = pd.read_csv("extraction/matches.csv")
+print(len(m))                                    # 193 occurrences
+print(m.groupby("dimension").size())             # hits per dimension
+print(m.groupby(["stage", "dimension"]).size().unstack(fill_value=0))   # hits per stage
+print(m["item"].value_counts().head())           # hair 9, beautiful 5, ...</code></pre>
+<p>Dividing these counts by the number of words in each stage (Table 3) gives hits per 100 words.</p></section>
+
+<section id="limitations"><h2><span>10</span>Limitations</h2>
+<ul class="b">
+<li>The method depends on a phrase list. Words such as “present”, “nice” and “hair” have several senses, and counting treats all senses alike. One false match was caught with a stoplist, but others may remain.</li>
+<li>The extraction was done by a language model with a prompt written for this study. Every phrase was checked against the text, but the choice of phrases could differ for another model or another reader.</li>
+<li>The 13 segments and four stages were decided by the researcher from changes of scene. A different division would change the stage figures, although the strongest patterns (the fall of shaming and the final peak of inversion) also show in the individual segments.</li>
+<li>The story is short. A short segment, such as segment 5 with 80 words, can show a high density from a few hits.</li>
+<li>Counts show vocabulary, not tone, and irony in particular is only partly captured by phrases.</li>
+<li>The statistical tests are a rough guide, because hits within a passage are not independent.</li></ul></section>
+
+<section id="conclusion"><h2><span>11</span>Conclusion</h2>
+<p>The narrator’s language turns economic loss into emotional value gradually, in four steps, and teaches the reader to call the two characters “wise” only at the very end. Counting and shame open the story and fall from 5.86 hits per 100 words in Stage I to 0.00 in Stage IV. Numbers then disappear. The hair is sold in the language of goods and then of confession, and feeling and value move onto the gifts, most strongly around the combs and in Stage IV (7.33 per 100 words), when the gifts cannot be used.</p>
+<p>The original claim is only partly supported. Shame and counting are early, as expected, but selling language returns in Stage III, and the narrator’s comments appear at both the start and the end. The language of sacrifice is also unequal, since most of the vocabulary of selling and of bodily reaction belongs to Della. Because the evidence is a short story read by one reader with one model, these findings should be tested on further stories and with other readers.</p></section>
+
+<section id="references"><h2>References</h2>
+<ul class="b">
+<li>Henry, O. (1905). “The Gift of the Magi”. Text used in this project: <code>corpus/gift_of_the_magi.txt</code>.</li>
+<li><a href="https://plotly.com/javascript/" target="_blank" rel="noopener noreferrer">Plotly.js</a> (version 2.35.2): used for the interactive figures in <a href="docs/visualisations.html">docs/visualisations.html</a>.</li>
+<li><a href="https://docs.github.com/en/pages" target="_blank" rel="noopener noreferrer">GitHub Pages Documentation</a>: Website Publishing and Hosting</li></ul></section>
+</article></div>
+
+<footer>Monsoon Semester 2026 &middot; Department of HSS, IIT (ISM) Dhanbad &middot; <a href="https://github.com/adityakumar190/synthetic_reading_gift_of_the_magi" target="_blank" rel="noopener noreferrer">GitHub repository</a></footer>
+
+<script>
+const LEX=["one dollar and eighty-seven cents|0|1 1", "a dollar and eighty-seven cents|0|7", "sixty cents|0|1", "pennies|0|1 1", "penny|0|3", "$1.87|0|3 3", "$8|0|2 3", "$30|0|2", "$20|0|2", "twenty-one dollars|0|6", "87 cents|0|6", "twenty dollars a week|0|3", "bulldozing|1|1", "close dealing|1|1", "counted|1|1", "saved|1|1", "saving|1|3", "calculated|1|3", "contracting|1|2", "expenses had been greater|1|3", "doesn't go far|1|3", "to buy jim a present|1|3", "to buy a present for jim|1|3", "cheeks burned|2|1", "silent imputation of parsimony|2|1", "shabby|2|1", "mendicancy squad|2|2", "worn red carpet|2|4", "on the sly|2|6", "burdened with a family|2|8", "needed a new overcoat|2|8", "without gloves|2|8", "howl|2|1", "hair|3|3 4 4 4 9 9 9 9 11", "hairs of my head|3|9", "brown cascade|3|5", "tresses|3|11", "lifting the mass with a practised hand|3|5", "hair goods of all kinds|3|5", "cut off|3|9 9", "cut it off|3|9", "will you buy my hair|4|5", "i buy hair|4|5", "twenty dollars|4|5", "sold|4|9 9 9 9", "exchange|4|13", "i sold the watch to get the money to buy your combs|4|12", "panting|5|5", "give it to me quick|5|5", "a tear or two|5|4", "faltered|5|4", "nervously|5|4", "lost its color|5|3", "turned white|5|8", "truant schoolboy|5|7", "coney island chorus girl|5|7", "ravages made by generosity added to love|5|7", "please god, make him think i am still pretty|5|8", "my hair grows so fast|5|11", "my hair grows awfully fast|5|9", "it'll grow out again|5|9", "if jim doesn't kill me|5|7", "gold watch|6|4", "watch|6|4 6 12", "the watch|6|6 6", "platinum fob chain|6|6", "fob chain|6|8", "chain|6|6 6", "leather strap|6|6", "combs|6|11 11 11 11", "present|6|6 9 12", "presents|6|12 13", "gift|6|9", "gifts|6|13 13 13 13", "treasures|6|4", "possessions|6|4", "pure tortoise shell|6|11", "jewelled rims|6|11", "coveted adornments|6|11", "simple and chaste in design|7|6", "quietness and value|7|6", "value|7|6", "beautiful|7|4 9 11 11 12", "rare|7|3", "sterling|7|3", "fine|7|3", "expensive|7|11", "worthy|7|3 6", "dull precious metal|7|12", "too nice|7|12", "nice|7|3 9 9", "grand|7|6", "mighty pride|8|4", "envy|8|4", "worshipped|8|11", "craved|8|11", "yearned|8|11", "ecstatic scream of joy|8|11", "hysterical tears and wails|8|11", "terrified|8|8", "sobs, sniffles, and smiles|8|1", "hugged|8|2 11", "happy|8|3 9", "smile|8|11", "smiled|8|12", "ardent spirit|8|12", "intoxication|8|7", "darling|8|9", "silent prayer|8|8", "anxious|8|6", "serious sweetness|8|9", "dim eyes|8|11", "wise|9|13", "wise men|9|13", "wonderfully wise men|9|13", "wise ones|9|13", "wisest|9|13 13 13", "foolish children|9|13", "unwisely|9|13", "prudence and reason|9|7", "idiocy|9|9", "a mathematician or a wit would give you the wrong answer|9|10", "magi|9|13 13", "dear friends|10|7", "let us regard with discreet scrutiny|10|10", "perhaps you have seen|10|3", "take a look at the home|10|2", "as you know|10|13", "forget the hashed metaphor|10|6", "this dark assertion will be illuminated later on|10|10", "which is all very good|10|2", "they always are|10|3", "which instigates the moral reflection|10|1", "here i have lamely related to you|10|13", "in a last word to the wise of these days let it be said|10|13", "which is always a tremendous task|10|7", "poor fellow|10|8", "already introduced to you|10|2", "did not exactly beggar description|11|2", "tripped by on rosy wings|11|6", "meretricious ornamentation|11|6", "inconsequential object|11|10", "uneventful chronicle|11|13", "the lord of the flat|11|11", "the mistress of the home|11|2", "queen of sheba|11|4", "king solomon|11|4", "her majesty's jewels and gifts|11|4", "eight dollars a week or a million a year|11|10", "nobody could ever count my love for you|11|9", "the greatest treasures of their house|11|13", "the magi brought valuable gifts, but that was not among them|11|10"];
+const SG=[[0, 105, "Della counts $1.87 and cries"], [0, 167, "The flat and the Youngs’ income"], [0, 223, "Della plans the present; the pier glass"], [1, 204, "The two treasures; the hair falls; Della leaves"], [1, 80, "Madame Sofronie buys the hair"], [1, 179, "Shopping; the platinum chain"], [1, 121, "Repairs at home; her reflection"], [2, 210, "Waiting; Jim arrives"], [2, 207, "Della tells Jim she sold her hair"], [2, 138, "The narrator’s aside; the package"], [3, 150, "The combs are opened"], [3, 151, "The watch; Jim’s confession"], [3, 122, "The narrator’s coda: the magi"]];                       // [stage, words, scene] per segment
+const SUBS=["amounts_money", "counting_saving_bargaining", "shame_and_want", "body_as_sellable", "price_sale_exchange", "reaction_to_sale", "gifts_possessions", "qualities_of_objects", "feelings_attached", "wisdom_foolishness", "narrator_comments", "ironic_register"];
+const DN=["Transactional shaming","Corporeal commodification","Objects and feeling","Paradoxical value inversion"];
+const SN=["amounts of money","counting, saving, bargaining","shame and want","body as sellable","price, sale, exchange","reaction to the sale","gifts and possessions","qualities of objects","feelings attached","wisdom and foolishness","narrator’s comments","ironic register"];
+const ST=["I. Scarcity and shame","II. Sacrifice and exchange","III. Confrontation","IV. Revelation and revaluation"];
+const DC=["#34439a","#0b6b6f","#9a5b00","#8a3470"];
+const $=id=>document.getElementById(id);
+// parse "phrase|sub|segs"
+const P=LEX.map(s=>{const a=s.split("|");const sub=+a[1];return{p:a[0],s:sub,d:Math.floor(sub/3),h:a[2]?a[2].split(" ").map(Number):[]}});
+const X=DN.map((_,d)=>SG.map((_,g)=>P.filter(x=>x.d===d).reduce((n,x)=>n+x.h.filter(v=>v===g+1).length,0)));
+const SW=[0,1,2,3].map(t=>SG.filter(s=>s[0]===t).reduce((n,s)=>n+s[1],0));
+const stageOf=g=>SG[g-1][0];
+const dens=(d,g)=>100*X[d][g]/SG[g][1];
+const pretty=s=>s.replace(/'/g,"’");
+// ---- 6. explorer
+let cur=-1;
+const cb=$("cats");
+["Whole story",...ST].forEach((n,k)=>{const b=document.createElement("button");b.type="button";b.textContent=n;b.setAttribute("aria-pressed",k===0);b.onclick=()=>{cur=k-1;[...cb.children].forEach((x,j)=>x.setAttribute("aria-pressed",j===k));draw()};cb.appendChild(b)});
+function draw(){const q=$("q").value.trim().toLowerCase();$("cols").innerHTML="";
+ DN.forEach((name,d)=>{const col=document.createElement("div");col.className="col";col.style.setProperty("--c",DC[d]);
+  const items=P.filter(x=>x.d===d&&x.p.includes(q)).map(x=>({x,n:cur<0?x.h.length:x.h.filter(g=>stageOf(g)===cur).length})).filter(o=>o.n>0).sort((a,b)=>b.n-a.n||a.x.p.localeCompare(b.x.p));
+  const tot=items.reduce((n,o)=>n+o.n,0);
+  col.innerHTML=`<h3><span>${name}</span><em>${items.length} phrases · ${tot} hits</em></h3>`;
+  const ul=document.createElement("ul");ul.className="chips";
+  items.forEach(o=>{const li=document.createElement("li");li.title=SN[o.x.s]+" · segments "+(o.x.h.join(", ")||"none");li.innerHTML=pretty(o.x.p).replace(/</g,"&lt;")+"<b>"+o.n+"</b>";ul.appendChild(li)});
+  if(!items.length)ul.textContent="No match.";col.appendChild(ul);$("cols").appendChild(col)})}
+$("q").oninput=draw;draw();
+// ---- Figure 1: heatmap
+const MAXD=13.1;let h='<div class="h"></div>'+SG.map((_,g)=>`<div class="h">${g+1}</div>`).join("");
+const bl=g=>(g===3||g===7||g===10)?"border-left:2px dotted #b3261e;":"";
+DN.forEach((n,d)=>{h+=`<div class="r">${n}</div>`;SG.forEach((s,g)=>{const a=Math.min(1,dens(d,g)/MAXD),al=Math.round((.07+.93*a)*255).toString(16).padStart(2,"0");
+ h+=`<div style="${bl(g)}background:${DC[d]}${al};color:${a>.5?"#fff":"#1e2230"}" title="${n}, segment ${g+1}: ${dens(d,g).toFixed(1)} per 100 words">${X[d][g]}</div>`})});
+$("hm").innerHTML=h;
+// ---- Figure 2: stage bars
+let b='<div></div>'+ST.map(s=>`<div class="h">${s}</div>`).join("");
+DN.forEach((n,d)=>{b+=`<div>${n}</div>`;[0,1,2,3].forEach(t=>{const v=100*SG.reduce((m,s,g)=>m+(s[0]===t?X[d][g]:0),0)/SW[t];
+ b+=`<div class="t"><i style="width:${v/8*100}%;background:${DC[d]};opacity:${.45+.18*t}"></i><span>${v.toFixed(2)}</span></div>`})});
+$("sb").innerHTML=b;
+// ---- Figure 3: timeline
+const x=i=>50+i*(570/12),y=v=>210-v/14*190;let s='';
+[0,5,10].forEach(v=>{s+=`<line x1="50" x2="620" y1="${y(v)}" y2="${y(v)}" stroke="#d5d9e6"/><text x="42" y="${y(v)+4}" text-anchor="end" fill="#5a6177">${v}</text>`});
+[3,7,10].forEach(g=>{const xx=(x(g-1)+x(g))/2;s+=`<line x1="${xx}" x2="${xx}" y1="10" y2="210" stroke="#b3261e" stroke-dasharray="3 3"/>`});
+SG.forEach((_,g)=>{s+=`<text x="${x(g)}" y="228" text-anchor="middle" fill="#5a6177">${g+1}</text>`});
+s+=`<text x="335" y="246" text-anchor="middle" fill="#5a6177">Segment</text>`;
+DN.forEach((n,d)=>{s+=`<polyline fill="none" stroke="${DC[d]}" stroke-width="2.2" points="${SG.map((_,g)=>x(g)+","+y(dens(d,g))).join(" ")}"/>`+SG.map((_,g)=>`<circle cx="${x(g)}" cy="${y(dens(d,g))}" r="3" fill="${DC[d]}"><title>${n}, segment ${g+1}: ${dens(d,g).toFixed(1)}</title></circle>`).join("")});
+$("tl").innerHTML=s;
+$("tlg").innerHTML=DN.map((n,d)=>`<span><i style="background:${DC[d]}"></i>${n}</span>`).join("");
+// ---- Figure 4: frequent phrases
+$("pb").innerHTML=P.filter(p=>p.h.length>=3).sort((a,b)=>b.h.length-a.h.length||a.p.localeCompare(b.p)).map(p=>`<div>${pretty(p.p)}</div><div class="t"><i style="width:${p.h.length*9}%;background:${DC[p.d]}"></i><span>${p.h.length}</span></div>`).join("");
+// ---- 9. segment reader
+const sg=$("segs");let sel=0;
+SG.forEach((_,g)=>{const bt=document.createElement("button");bt.type="button";bt.textContent=g+1;bt.setAttribute("aria-label","Segment "+(g+1));bt.setAttribute("aria-pressed",g===0);bt.onclick=()=>{sel=g;[...sg.children].forEach((e,j)=>e.setAttribute("aria-pressed",j===g));show()};sg.appendChild(bt)});
+function show(){const g=sel,tot=DN.reduce((n,_,d)=>n+X[d][g],0);
+ let r=`<h3>Segment ${g+1}: ${SG[g][2]}</h3><div class="meta"><span class="stg">Stage ${ST[SG[g][0]]}</span> · ${SG[g][1]} words · ${tot} hits · ${(100*tot/SG[g][1]).toFixed(1)} per 100 words</div>`;
+ DN.forEach((n,d)=>{r+=`<div class="row"><span>${n}</span><div class="t"><i style="width:${dens(d,g)/18*100}%;background:${DC[d]}"></i><span>${X[d][g]} · ${dens(d,g).toFixed(1)}</span></div></div>`});
+ const ph=P.map(p=>({p,n:p.h.filter(v=>v===g+1).length})).filter(o=>o.n).sort((a,b)=>a.p.d-b.p.d||b.n-a.n);
+ r+='<ul class="chips" style="">'+ph.map(o=>`<li style="border-color:${DC[o.p.d]};color:${DC[o.p.d]}" title="${SN[o.p.s]}">${pretty(o.p.p)}${o.n>1?"<b>×"+o.n+"</b>":""}</li>`).join("")+"</ul>";
+ $("rd").innerHTML=r}
+show();
+// ---- contents highlight
+const links=[...document.querySelectorAll(".toc a")];
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.toggleAttribute("aria-current",a.getAttribute("href")==="#"+e.target.id))}}),{rootMargin:"-10% 0px -75% 0px"});
+document.querySelectorAll("article section").forEach(s=>io.observe(s));
+
+</script>
+</body>
+</html>
