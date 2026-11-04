@@ -1,0 +1,19 @@
+SAMPLING METHODOLOGY
+I split the story into three equal parts by sentence count. From each part I read one block of about one-fifth (20%) of the part: the first block of Part 1, a randomly placed block of Part 2 (seed 42) and the last block of Part 3.
+
+MARKED PHRASES
+
+PART 1 (first)
+One dollar and eighty-seven cents. That was all. And sixty cents of it was in pennies. Pennies saved one and two at a time by bulldozing the grocer and the vegetable man and the butcher until one’s cheeks burned with the silent imputation of parsimony that such close dealing implied. Three times Della counted it. One dollar and eighty-seven cents. And the next day would be Christmas. There was clearly nothing to do but flop down on the shabby little couch and howl. So Della did it. Which instigates the moral reflection that life is made up of sobs, sniffles, and smiles, with sniffles predominating.
+
+Marked: pennies; cheeks burned with the silent imputation of parsimony; shabby little couch; sobs, sniffles, and smiles
+
+PART 2 (random)
+Jim stopped inside the door, as immovable as a setter at the scent of quail. His eyes were fixed upon Della, and there was an expression in them that she could not read, and it terrified her. It was not anger, nor surprise, nor disapproval, nor horror, nor any of the sentiments that she had been prepared for. He simply stared at her fixedly with that peculiar expression on his face. Della wriggled off the table and went for him. “Jim, darling,” she cried, “don’t look at me that way. I had my hair cut off and sold because I couldn’t have lived through Christmas without giving you a present. It’ll grow out again—you won’t mind, will you? I just had to do it. My hair grows awfully fast.
+
+Marked: it terrified her; I had my hair cut off and sold; My hair grows awfully fast
+
+PART 3 (last)
+I sold the watch to get the money to buy your combs. And now suppose you put the chops on.” The magi, as you know, were wise men—wonderfully wise men—who brought gifts to the Babe in the manger. They invented the art of giving Christmas presents. Being wise, their gifts were no doubt wise ones, possibly bearing the privilege of exchange in case of duplication. And here I have lamely related to you the uneventful chronicle of two foolish children in a flat who most unwisely sacrificed for each other the greatest treasures of their house. But in a last word to the wise of these days let it be said that of all who give gifts these two were the wisest. Of all who give and receive gifts, such as they are wisest. Everywhere they are wisest. They are the magi.
+
+Marked: I sold the watch to get the money to buy your combs; wise men; two foolish children; the wisest; They are the magi

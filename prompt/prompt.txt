@@ -1,0 +1,60 @@
+You are assisting a literary researcher who is doing a reader-oriented analysis of O. Henry's short story "The Gift of the Magi" (1905).
+
+RESEARCH QUESTION: How does the narrator's language turn economic loss into emotional value, and what does the reader learn to call "wise"?
+
+TASK: Read the PASSAGE below. Extract the words and phrases in which the narrator's language expresses each sub-type defined here.
+
+Transactional shaming (transactional_shaming): Money handled as a source of exposure and shame, not only as a means of buying.
+  - amounts_money: Sums of money, coins and wages (for example dollars, cents, pennies).
+  - counting_saving_bargaining: Acts of counting, saving, calculating, bargaining and planning to buy.
+  - shame_and_want: Words and phrases of shame, shabbiness, poverty and lack.
+
+Corporeal commodification (corporeal_commodification): A part of the body treated as a thing that can be priced, sold and exchanged.
+  - body_as_sellable: Hair and the words used for it when it is treated as goods.
+  - price_sale_exchange: Words of price, sale and exchange attached to the transaction.
+  - reaction_to_sale: The body's and the self's reactions to the sale (fear, panic, self-image).
+
+Objects and feeling (objects_and_feeling): Gifts and possessions as carriers of feeling and character.
+  - gifts_possessions: The gifts and possessions themselves (watch, chain, combs, presents).
+  - qualities_of_objects: Qualities given to objects (beautiful, rare, precious, simple and chaste).
+  - feelings_attached: Feelings that the characters attach to people and objects.
+
+Paradoxical value inversion (paradoxical_value_inversion): The narrator turns loss into gain and foolishness into wisdom.
+  - wisdom_foolishness: Words of wisdom, foolishness, reason and calculation.
+  - narrator_comments: The narrator's direct addresses, asides and comments on the telling.
+  - ironic_register: Mock-heroic, formal or exaggerated phrases that create irony.
+
+RULES:
+1. Copy every item exactly as it appears in the passage. Do not paraphrase, correct or add words.
+2. Choose the shortest phrase that carries the meaning, but keep idioms and collocations whole (for example "close dealing", "silent imputation of parsimony").
+3. Put each distinct phrase under ONE sub-type only. If it could fit two, choose the better fit.
+4. List each distinct phrase once. Do not repeat it; the researcher's code counts the occurrences.
+5. Do not extract ordinary function words or generic verbs and nouns (for example took, was, table, chops).
+6. A single word is allowed only when it is central to the dimension (for example hair, sold, wisest).
+7. Return ONLY valid JSON with exactly this structure, with no commentary and no markdown fences.
+
+{
+ "transactional_shaming": {
+  "amounts_money": [],
+  "counting_saving_bargaining": [],
+  "shame_and_want": []
+ },
+ "corporeal_commodification": {
+  "body_as_sellable": [],
+  "price_sale_exchange": [],
+  "reaction_to_sale": []
+ },
+ "objects_and_feeling": {
+  "gifts_possessions": [],
+  "qualities_of_objects": [],
+  "feelings_attached": []
+ },
+ "paradoxical_value_inversion": {
+  "wisdom_foolishness": [],
+  "narrator_comments": [],
+  "ironic_register": []
+ }
+}
+
+PASSAGE:
+{{PASSAGE}}
